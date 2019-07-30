@@ -125,7 +125,7 @@ ReactDOM.render(
     <Toggle />, document.getElementById('root')
 ); */
 // TODO Conditional Rendering
-class LoginControl extends React.Component {
+/* class LoginControl extends React.Component {
     constructor(props) {
         super(props);
 
@@ -188,6 +188,61 @@ function LogoutButton(props) {
 ReactDOM.render(
     <LoginControl />,
     document.getElementById('root')
-);
+); */
+/* function WarningBaner(props) {
+    if (!props.warn) {
 
+        return null;
+    }
+    return (
+        <div className="warning">Warning!</div>
+    );
 
+}
+class Page extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { showWarning: true }
+        this.handleToggleClick = this.handleToggleClick.bind(this);
+    }
+    handleToggleClick() {
+        this.setState(state => ({ showWarning: !state.showWarning }))
+    }
+    render() {
+        return (
+            <div>
+                <WarningBaner warn={this.state.showWarning} />
+                <button onClick={this.handleToggleClick}>
+                    {this.state.showWarning ? 'Hide' : 'Show'}
+                </button>
+            </div>
+        );
+    }
+}
+
+ReactDOM.render(
+    <Page />,
+    document.getElementById('root')
+); */
+function ListItems(props) {
+    return (
+        <li>{props.value}</li>
+    );
+}
+function NumberList(props) {
+    const numbers = props.numbers;
+    const listItems = numbers.map((numbers) =>
+        <ListItems key={numbers.toString()}
+            value={numbers} />
+    );
+    return (
+        <ul>
+            {listItems}
+        </ul>
+    )
+}
+const numbers = [1, 2, 3, 4, 5];
+ReactDOM.render(
+    <NumberList numbers={numbers} />,
+    document.getElementById('root')
+)
